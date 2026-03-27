@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type OrderObject {
+  _id: ID!
+  userId: String!
+  cartId: String!
+  address: String!
+  phone: String!
+  paymentMethod: PaymentMethodsEnum!
+  total: Float!
+  orderStatus: OrderStatusEnum!
+  paymentIntent: String
+}
+
+enum PaymentMethodsEnum {
+  CASH
+  CARD
+}
+
+enum OrderStatusEnum {
+  PENDING
+  PLACED
+  PREPARING
+  ON_WAY
+  DELIVERED
+  RETURNED
+  CANCELLED
+  REFUNDED
+}
+
+type Query {
+  """get all orders"""
+  ListOrders: [OrderObject!]!
+}

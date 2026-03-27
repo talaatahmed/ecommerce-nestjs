@@ -1,0 +1,35 @@
+In powershell:
+
+(1)
+PS C:\Users\talaa> stripe login
+Your pairing code is: hot-loving-redeem-solid
+This pairing code verifies your authentication with Stripe.
+Press Enter to open the browser or visit https://dashboard.stripe.com/stripecli/confirm_auth?t=mNPSjFyK5ypftpdY5Kb8bWx75bN0f61a (^C to quit)
+> Done! The Stripe CLI is configured for ecommerce with account id acct_1T8J2DQgqLuGtJWG
+Please note: this key will expire after 90 days, at which point you'll need to re-authenticate.
+--------------------------------------------------------------------------------------------------
+(2)
+PS C:\Users\talaa> stripe listen --events checkout.session.completed --forward-to localhost:3000/order/webhook
+> Ready! You are using Stripe API Version [2026-02-25.clover]. Your webhook signing secret is whsec_8f980032da9b037e4f1a440e867f97ebdfaa773bf1cf1f06b58fdb4a9f9f66e2 (^C to quit)
+2026-03-23 20:41:56   --> checkout.session.completed [evt_1TEDQEQgqLuGtJWGGKKJsD2B]
+2026-03-23 20:41:56  <--  [201] POST http://localhost:3000/order/webhook [evt_1TEDQEQgqLuGtJWGGKKJsD2B]
+--------------------------------------------------------------------------------------------------
+(3)
+In another tap in the powershell:
+
+C:\Users\talaa>stripe trigger checkout.session.completed
+Setting up fixture for: product
+Running fixture for: product
+Setting up fixture for: price
+Running fixture for: price
+Setting up fixture for: checkout_session
+Running fixture for: checkout_session
+Setting up fixture for: payment_page
+Running fixture for: payment_page
+Setting up fixture for: payment_method
+Running fixture for: payment_method
+Setting up fixture for: payment_page_confirm
+Running fixture for: payment_page_confirm
+Trigger succeeded! Check dashboard for event details.
+--------------------------------------------------------------------------------------------------
+C:\Users\talaa>

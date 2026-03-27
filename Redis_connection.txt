@@ -1,0 +1,21 @@
+C:\Windows\System32>docker run -d -p 6379:6379 redis
+Unable to find image 'redis:latest' locally
+latest: Pulling from library/redis
+141e1fc22067: Pull complete
+89b1b12d7109: Pull complete
+f25f5c85b90d: Pull complete
+214ecf6e5c87: Pull complete
+206356c42440: Pull complete
+4f4fb700ef54: Pull complete
+ae77945b0371: Pull complete
+Digest: sha256:1c054d54ecd1597bba52f4304bca5afbc5565ebe614c5b3d7dc5b7f8a0cd768d
+Status: Downloaded newer image for redis:latest
+294816cf35e866eba8332ea1d69492bdc5c9f43df32cc3d5873b2b9bb950eaf1
+
+C:\Windows\System32>docker exec -it <container_id> redis-cli
+The system cannot find the file specified.
+
+C:\Windows\System32>docker exec -it 294816cf35e866eba8332ea1d69492bdc5c9f43df32cc3d5873b2b9bb950eaf1  redis-cli
+127.0.0.1:6379
+
+OR YOU CAN OPEN DOCKER DESKTOP AND THEN RUN RADIS
